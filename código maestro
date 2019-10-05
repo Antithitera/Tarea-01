@@ -22,7 +22,18 @@ int main(void){
     if(uv!='m' || uv!='d' || uv!='c') {
          cout <<"Unidad de medida no valida para la velocidad";
     return 0;}
-cout << "patata";
+cout <<"Masa: ";
+cin >> m >>um;
+cout << m <<" "<< um << endl;
+    if(um!='k' || um!='K' || um!='g'  || um!='G' || m<0) {
+         cout <<"Unidad de medida no valida para la masa o masa negativa";
+    return 0;}
+cout <<"Constante de recuperación: ";
+cin >> k >> uk;
+cout << k <<" "<< uk << endl;
+    if(uk!='N' || uk!='d' || uk!='k'||  k<0) {
+         cout <<"Unidad de medida no valida para la constante o K negativa";
+    return 0;}
 
 //if masa negativa:  decir que no puede ser
 //if k negartiva lo mismo
