@@ -47,7 +47,7 @@ cout <<"Constante de recuperacion: ";
 cin >> k >> uk;
 cout <<endl<<"Constante de recuperacion: "<< k <<" "<< uk <<"/m"<< endl;
 //Aquí estaban los if para unidades mal y k negativa, pero son dos casos distintos
-
+//patata
     switch (uk){
         case 'd': k=k/100000;
         case 'k': k=k*9,8;
