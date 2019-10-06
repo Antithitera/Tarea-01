@@ -4,41 +4,57 @@ using namespace std;
 
 double r,v,m,k;
 char ur,uv,um,uk; //Para las unidades usamos u( variable de la magnitud)
-const double pi=(4*atan(1))
+const double pi=(4*atan(1));
 
 int main(void){
-    
+
   cout <<"Posicion inicial: ";
   cin >> r >> ur;
-  cout << r <<" "<< ur << endl
-}
-    if(ur!='m' || ur!='d' || ur!='c') {
+  cout << endl <<"Posición inicial: "<< r <<" "<< ur << endl;
+
+    if(ur!='m' && ur!='d' && ur!='c') {
          cout <<"Unidad de medida no valida para la posicion";
     return 0;}
-    
+    switch (ur){
+        case 'd': r=r/10;
+        case 'c': r=r/100;
+    break;
+    }
+
    cout <<"Velocidad inicial: ";
    cin >> v >> uv;
-    cout << v <<" "<< uv << endl;
-    if(uv!='m' || uv!='d' || uv!='c') {
+   cout <<endl<<"Velocidad inicial: "<<v <<" "<< uv <<"/s"<< endl;
+    if(uv!='m' && uv!='d' && uv!='c') {
          cout <<"Unidad de medida no valida para la velocidad";
     return 0;}
+    switch (uv){
+        case 'd': v=v/10;
+        case 'c': v=v/100;
+    break;
+    }
+
 cout <<"Masa: ";
 cin >> m >>um;
-cout << m <<" "<< um << endl;
-    if(um!='k' || um!='K' || um!='g'  || um!='G' || m<0) {
-         cout <<"Unidad de medida no valida para la masa o masa negativa";
-    return 0;}
-cout <<"Constante de recuperación: ";
+cout <<endl<<"Masa: "<< m <<" "<< um <<"g"<< endl;
+//Aquí estaban los if para unidades mal y masa negativa, pero son dos casos distintos
+    switch (um){
+        case 'g': m=m/1000;
+        case 'G': m=m/1000;
+    break;
+    }
+
+cout <<"Constante de recuperacion: ";
 cin >> k >> uk;
-cout << k <<" "<< uk << endl;
-    if(uk!='N' || uk!='d' || uk!='k'||  k<0) {
-         cout <<"Unidad de medida no valida para la constante o K negativa";
-    return 0;}
+cout <<endl<<"Constante de recuperacion: "<< k <<" "<< uk <<"/m"<< endl;
+//Aquí estaban los if para unidades mal y k negativa, pero son dos casos distintos
 
-//if masa negativa:  decir que no puede ser
-//if k negartiva lo mismo
-
-//encadenar switch(unidades) para cada caso: 4 switch
+    switch (uk){
+        case 'd': k=k/100000;
+        case 'k': k=k*9,8;
+    break;
+    }
     
     return 0;
 }
+
+
