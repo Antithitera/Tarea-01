@@ -10,50 +10,55 @@ int main(void){
 
   cout <<"Posicion inicial: ";
   cin >> r >> ur;
-  cout << endl <<"Posición inicial: "<< r <<" "<< ur << endl;
-
-    if(ur!='m' && ur!='d' && ur!='c') {
+  if(ur!='m' && ur!='d' && ur!='c') {
          cout <<"Unidad de medida no valida para la posicion";
-    return 0;}
-    switch (ur){
+         return 0;}
+  switch (ur){
         case 'd': r=r/10;
         case 'c': r=r/100;
-    break;
+        break;
     }
 
    cout <<"Velocidad inicial: ";
    cin >> v >> uv;
-   cout <<endl<<"Velocidad inicial: "<<v <<" "<< uv <<"/s"<< endl;
-    if(uv!='m' && uv!='d' && uv!='c') {
+   if(uv!='m' && uv!='d' && uv!='c') {
          cout <<"Unidad de medida no valida para la velocidad";
     return 0;}
-    switch (uv){
+   switch (uv){
         case 'd': v=v/10;
         case 'c': v=v/100;
     break;
     }
 
-cout <<"Masa: ";
-cin >> m >>um;
-cout <<endl<<"Masa: "<< m <<" "<< um <<"g"<< endl;
-//Aquí estaban los if para unidades mal y masa negativa, pero son dos casos distintos
-    switch (um){
+  cout <<"Masa: ";
+  cin >> m >>um;
+  if (um!='k' || um!='K' || um!='g' || um!='G') {
+   cout <<"Unidad de medida no valida para la masa";
+   return 0;
+  }
+  switch (um){
         case 'g': m=m/1000;
         case 'G': m=m/1000;
     break;
     }
 
-cout <<"Constante de recuperacion: ";
-cin >> k >> uk;
-cout <<endl<<"Constante de recuperacion: "<< k <<" "<< uk <<"/m"<< endl;
-//Aquí estaban los if para unidades mal y k negativa, pero son dos casos distintos
-
+  cout <<"Constante de recuperacion: ";
+  cin >> k >> uk;
+  if(uk!='N' || uk!='d' || uk!='k'){
+    cout <<"Unidad de medida no valida para la constante de recuperacion";
+     return 0;
+  }
     switch (uk){
         case 'd': k=k/100000;
         case 'k': k=k*9,8;
     break;
     }
     
+//Aquí van los casos de masa y k negativas
+    
+//Aquí van las cuentas que hay que hacer
+
+
     return 0;
 }
 
