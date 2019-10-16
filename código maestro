@@ -3,63 +3,69 @@
 using namespace std;
 
 double r,v,m,k;
-char ur,uv,um,uk; //Para las unidades usamos u( variable de la magnitud)
+char ur,uv,um,uk; //Para las unidades usamos u(variable de la magnitud)
 const double pi=(4*atan(1));
+bool umal=false;
 
 int main(void){
 
   cout <<"Posicion inicial: ";
   cin >> r >> ur;
-  if(ur!='m' && ur!='d' && ur!='c') {
-         cout <<"Unidad de medida no valida para la posicion";
-         return 0;}
   switch (ur){
-        case 'd': r=r/10;
-        case 'c': r=r/100;
-        break;
+        case 'm': break;
+        case 'd': r=r/10; break;
+        case 'c': r=r/100; break;
+        default: cout <<"Unidad de medida no valida para la posicion"; return 0;
     }
 
    cout <<"Velocidad inicial: ";
    cin >> v >> uv;
-   if(uv!='m' && uv!='d' && uv!='c') {
-         cout <<"Unidad de medida no valida para la velocidad";
-    return 0;}
    switch (uv){
-        case 'd': v=v/10;
-        case 'c': v=v/100;
-    break;
+        case 'm': break;
+        case 'd': v=v/10;  break;
+        case 'c': v=v/100;  break;
+        default:        cout <<"Unidad de medida no valida para la velocidad"; return 0;
     }
 
   cout <<"Masa: ";
   cin >> m >>um;
-  if (um!='k' || um!='K' || um!='g' || um!='G') {
-   cout <<"Unidad de medida no valida para la masa";
-   return 0;
-  }
   switch (um){
-        case 'g': m=m/1000;
-        case 'G': m=m/1000;
-    break;
+        case 'k': break;
+        case 'K': break;
+        case 'g': m=m/1000; break;
+        case 'G': m=m/1000; break;
+        default:     cout <<"Unidad de medida no valida para la masa"; return 0;
     }
 
   cout <<"Constante de recuperacion: ";
   cin >> k >> uk;
-  if(uk!='N' || uk!='d' || uk!='k'){
-    cout <<"Unidad de medida no valida para la constante de recuperacion";
-     return 0;
-  }
     switch (uk){
-        case 'd': k=k/100000;
-        case 'k': k=k*9,8;
-    break;
+        case 'N': break;
+        case 'd': k=k/100000;    break;
+        case 'k': k=k*9.8;    break;
+        default:    cout <<"Unidad de medida no valida para la constante de recuperacion"; return 0;
     }
-    
+
 //Aquí van los casos de masa y k negativas
-    
-//Aquí van las cuentas que hay que hacer
-
-
-    return 0;
+if(m<0 && k<0) {
+    cout <<"Tanto la masa como la constante de recuperacion deben tener valor positivo";
+    umal=true;
 }
+else if(m<0){
+   cout<<"La masa debe tener valor positivo";
+   umal=true;
+ }
+else if(k<0){
+   cout<<"La contante de recuperacion debe tener valor positivo";
+   umal=true;
+ }
 
+//Aquí van las cuentas que hay que hacer
+if (umal==false){
+cout <<endl<<"w= "<< sqrt(k/m)<<" s^-1"<<endl;
+cout <<"Alpha= "<< k/m<<" s^-2"<<endl;
+cout <<"T= "<<(pi*2)/(sqrt(k/m))<<" s"<<endl;
+cout <<"E= "<< (0.5*m*v*v)+(0.5*k*r*r)<<" J";}
 
+return 0;
+}
